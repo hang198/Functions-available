@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai3</title>
+</head>
+<body>
+<h1>Please enter your text</h1>
+<input type="text" id="inputString" onkeydown="listen();" onkeyup="convert()" ;>
+<p id="result"></p>
+<script>
+    function convert() {
+        let str = document.getElementById('inputString').value;
+        let array = [];
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === str[i].toUpperCase()) array.push(str[i].toLowerCase());
+            else if (str[i] === str[i].toLowerCase()) array.push(str[i].toUpperCase());
+        }
+        document.getElementById('result').innerHTML = array.join('');
+    }
+
+    function listen() {
+        document.addEventListener('keydown', checkKey);
+
+    }
+
+    function checkKey(e) {
+        let keyCode = (event.key);
+        if (keyCode == '<' || keyCode == '>' || keyCode == '*' || keyCode == '/' || keyCode == '=' || keyCode == '+' || keyCode == '-' || keyCode == '=' || keyCode == '0' || keyCode == '1' || keyCode == '2' || keyCode == '3' || keyCode == '4' || keyCode == '5' || keyCode == '6' || keyCode == '7' || keyCode == '8' || keyCode == '9') {
+            e.preventDefault();
+        }
+    }
+</script>
+</body>
+</html>
